@@ -1,4 +1,16 @@
 ---
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/global.css';
+
+import { personalInfo, skills, experience, projects, skillCards } from '../data/data';
 
 ---
 
@@ -6,11 +18,58 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content="Carlos J. Pérez - Senior Software Engineer Portfolio" />
+		<title>Carlos J. Pérez - Senior Software Engineer</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-black text-gray-100 font-['Inter']">
+		<Header name={personalInfo.name} />
+
+		<Hero name={personalInfo.name} title={personalInfo.title} description={personalInfo.description} />
+		<About github={personalInfo.github} linkedin={personalInfo.linkedin} />
+		<div class="bg-hero">
+			<Skills skillCards={skillCards} />
+		</div>
+		<Experience experience={experience} />
+		<Projects projects={projects} />
+		<Contact email={personalInfo.email} location={personalInfo.location} github={personalInfo.github} linkedin={personalInfo.linkedin} />
+		<Footer name={personalInfo.name} title={personalInfo.title} github={personalInfo.github} linkedin={personalInfo.linkedin} />
+
+		<script>
+			// Smooth scrolling for menu links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', (e: Event) => {
+					e.preventDefault();
+					const target = document.querySelector((anchor as HTMLAnchorElement).getAttribute('href') || '');
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				});
+			});
+
+			// Skills bars animation
+			const observerOptions = {
+				threshold: 0.5,
+				rootMargin: '0px 0px -100px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const element = entry.target as HTMLElement;
+						element.style.width = element.style.width;
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.bg-gradient-to-r.from-blue-400.to-purple-400').forEach(bar => {
+				observer.observe(bar);
+			});
+		</script>
 	</body>
 </html>

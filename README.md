@@ -1,47 +1,140 @@
-# Astro Starter Kit: Minimal
+# Portfolio Personal - Carlos
 
-```sh
-npm create astro@latest -- --template minimal
+Un portfolio moderno y responsive construido con Astro y Tailwind CSS, inspirado en el diseño de Tamal Sen.
+
+## 🚀 Características
+
+- **Diseño Moderno**: Interfaz limpia y profesional con gradientes y animaciones suaves
+- **Totalmente Responsive**: Optimizado para todos los dispositivos
+- **Performance**: Construido con Astro para máxima velocidad
+- **SEO Optimizado**: Meta tags y estructura semántica
+- **Accesible**: Cumple con estándares de accesibilidad web
+- **Fácil Personalización**: Datos centralizados para fácil edición
+
+## 🛠️ Tecnologías
+
+- [Astro](https://astro.build/) - Framework web moderno
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [TypeScript](https://www.typescriptlang.org/) - Tipado estático
+- [Inter Font](https://fonts.google.com/specimen/Inter) - Tipografía moderna
+
+## 📦 Instalación
+
+1. Clona el repositorio:
+
+```bash
+git clone <tu-repositorio>
+cd portfolio
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+2. Instala las dependencias:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+npm install
+```
 
-## 🚀 Project Structure
+3. Inicia el servidor de desarrollo:
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+npm run dev
+```
 
-```text
-/
-├── public/
+4. Abre [http://localhost:4321](http://localhost:4321) en tu navegador
+
+## 🎨 Personalización
+
+### Información Personal
+
+Edita la sección de datos en `src/pages/index.astro`:
+
+```javascript
+const personalInfo = {
+  name: "Tu Nombre",
+  title: "Tu Título",
+  description: "Tu descripción",
+  email: "tu@email.com",
+  github: "https://github.com/tu-usuario",
+  linkedin: "https://linkedin.com/in/tu-usuario",
+  twitter: "https://twitter.com/tu-usuario",
+};
+```
+
+### Habilidades
+
+Modifica el array `skills` para mostrar tus habilidades:
+
+```javascript
+const skills = [
+  { name: "JavaScript", level: 90 },
+  { name: "React", level: 85 },
+  // ... más habilidades
+];
+```
+
+### Proyectos
+
+Actualiza el array `projects` con tus proyectos:
+
+```javascript
+const projects = [
+  {
+    title: "Nombre del Proyecto",
+    description: "Descripción del proyecto",
+    tech: ["React", "Node.js", "MongoDB"],
+    image: "/ruta-a-la-imagen.jpg",
+    link: "https://tu-proyecto.com",
+  },
+];
+```
+
+## 📁 Estructura del Proyecto
+
+```
+portfolio/
+├── public/           # Archivos estáticos
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/        # Páginas de Astro
+│   │   └── index.astro
+│   └── styles/       # Estilos CSS
+│       └── global.css
+├── astro.config.mjs  # Configuración de Astro
+├── package.json      # Dependencias
+└── README.md         # Documentación
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚀 Despliegue
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Netlify
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Conecta tu repositorio a Netlify
+2. Configura el comando de build: `npm run build`
+3. Configura el directorio de salida: `dist`
 
-## 🧞 Commands
+### Vercel
 
-All commands are run from the root of the project, from a terminal:
+1. Conecta tu repositorio a Vercel
+2. Vercel detectará automáticamente Astro
+3. Despliega con un clic
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### GitHub Pages
 
-## 👀 Want to learn more?
+1. Ejecuta `npm run build`
+2. Sube el contenido de `dist/` a la rama `gh-pages`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🎯 Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye el proyecto para producción
+- `npm run preview` - Previsualiza la build de producción
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de usarlo y modificarlo.
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request.
+
+---
+
+Hecho con ❤️ y [Astro](https://astro.build/)
